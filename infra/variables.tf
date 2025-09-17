@@ -22,3 +22,12 @@ variable "cpu" {
 variable "memory" {
   default = 512
 }
+
+variable "container_port" {
+  type = number
+}
+
+variable "host_port" {
+  default = 80
+  type = number
+}

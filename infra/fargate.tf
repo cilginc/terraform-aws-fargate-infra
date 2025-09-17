@@ -10,8 +10,8 @@ resource "aws_ecs_task_definition" "app" {
     image     = var.app_image
     essential = true
     portMappings = [{
-      containerPort = 80
-      hostPort      = 80
+      containerPort = var.container_port
+      hostPort      = var.host_port
     }]
   }])
 }

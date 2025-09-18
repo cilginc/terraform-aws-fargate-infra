@@ -8,3 +8,5 @@
 - [ ] make a ci/cd for deploying
 - [ ] use buildpacks/pack for builds without dockerfiles.
 - [ ] Auto get container port
+
+- [ ] add tf state files to repo after ci/cd

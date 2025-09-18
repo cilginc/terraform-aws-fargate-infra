@@ -1,0 +1,25 @@
+{
+  "name": "terraform-aws-fargate-infra",
+  "version": "1.0.0",
+  "description": "Just app for testing",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cilginc/terraform-aws-fargate-infra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cilginc/terraform-aws-fargate-infra/issues"
+  },
+  "homepage": "https://github.com/cilginc/terraform-aws-fargate-infra#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

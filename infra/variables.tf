@@ -24,10 +24,11 @@ variable "memory" {
 }
 
 variable "container_port" {
-  type = number
+  type    = number
+  default = 80
 }
 
 variable "host_port" {
   default = 80
-  type = number
+  type    = number
 }

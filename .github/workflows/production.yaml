@@ -20,7 +20,6 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,11 +29,8 @@ jobs:
         with:
           terraform_version: 1.13.2
 
-      - name: Change directory to Production
-        run: cd infra/production
-
       - name: Terraform Init
-        run: terraform init
+        run: cd infra/production && terraform init -backend-config="bucket=${{secrets.BUCKET_NAME}}" -backend-config="dynamodb_table=${{secrets.DYNAMODB_TABLE}}"
 
       - name: Terraform Apply (Production)
-        run: terraform apply -auto-approve -var="app_image=${{ needs.production.outputs.image-tag }}"
+        run: cd infra/production && terraform apply -auto-approve -var="app_name=myapp" -var="app_image=myapp:${{ needs.build.outputs.image-tag }}"

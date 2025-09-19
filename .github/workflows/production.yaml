@@ -12,7 +12,7 @@ jobs:
       image_name: my-app
       environment: production
     secrets:
-      GHCR_PAT: ${{ secrets.GHCR_PAT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest

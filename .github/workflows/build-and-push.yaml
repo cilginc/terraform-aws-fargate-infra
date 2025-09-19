@@ -18,7 +18,7 @@ on:
         required: true
         type: string # staging | production
     secrets:
-      GHCR_PAT:
+      GITHUB_TOKEN:
         required: true
     outputs:
       image-tag:
@@ -39,7 +39,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract Docker metadata
         id: meta

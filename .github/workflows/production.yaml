@@ -34,7 +34,7 @@ jobs:
         run: cd infra/production
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -backend-config="bucket=${{secrets.BUCKET_NAME}}" -backend-config="dynamodb_table=${{secrets.DYNAMODB_TABLE}}"
 
       - name: Terraform Apply (Production)
-        run: terraform apply -auto-approve -var="app_image=${{ needs.production.outputs.image-tag }}"
+        run: terraform apply -auto-approve -var="app_image=${{ needs.build.outputs.image-tag }}"
